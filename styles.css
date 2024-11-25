@@ -15,44 +15,17 @@ body {
   position: relative;
 }
 
+/* Define the heart shape */
 .heart {
   position: absolute;
   width: 30px;
   height: 30px;
   background-color: #f06;
+  clip-path: polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%); /* Heart shape using clip-path */
   animation: fall 5s linear infinite, neon 1.5s alternate infinite;
 }
 
-.heart::before, .heart::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #f06;
-}
-
-.heart::before {
-  top: -15px;
-  left: 0;
-}
-
-.heart::after {
-  left: 15px;
-  top: 0;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-30px); /* Start just above the screen */
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh); /* Fall to the bottom of the screen */
-    opacity: 0;
-  }
-}
-
+/* Neon effect for hearts */
 @keyframes neon {
   0% {
     box-shadow: 0 0 5px #f06, 0 0 15px #f06, 0 0 25px #f06, 0 0 50px #ff1493;
@@ -65,5 +38,17 @@ body {
   100% {
     box-shadow: 0 0 5px #f06, 0 0 15px #f06, 0 0 25px #f06, 0 0 50px #ff1493;
     transform: scale(1);
+  }
+}
+
+/* Animation for falling hearts */
+@keyframes fall {
+  0% {
+    transform: translateY(-100px); /* Start above the screen */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh); /* Fall to the bottom of the screen */
+    opacity: 0;
   }
 }
