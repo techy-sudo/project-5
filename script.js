@@ -6,20 +6,21 @@ function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
   
-  // Position the heart randomly within the viewport width
-  heart.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+  // Randomize horizontal position
+  heart.style.left = `${Math.random() * 100}vw`; // Random position across the width
   
-  // Assign random speed (animation duration) to each heart
+  // Assign a random animation duration (falling speed)
   const animationDuration = Math.random() * 5 + 5; // Random duration between 5s and 10s
   heart.style.animationDuration = `${animationDuration}s`;
   
+  // Append heart to the container
   heartContainer.appendChild(heart);
 
-  // Remove the heart after its animation duration ends
+  // Remove the heart after its animation completes
   setTimeout(() => {
     heart.remove();
   }, animationDuration * 1000); // After the heart finishes its animation
 }
 
-// Create hearts every 200ms (to simulate a "rain" effect)
-setInterval(createHeart, 200);
+// Create hearts at an interval to simulate continuous falling
+setInterval(createHeart, 200); // Generate hearts every 200ms
