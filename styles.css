@@ -1,3 +1,4 @@
+/* Reset styles */
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +20,7 @@ body {
   width: 30px;
   height: 30px;
   background-color: #f06;
-  transform: rotate(-45deg);
-  animation: fly 5s linear infinite, neon 1.5s alternate infinite;
+  animation: fall 5s linear infinite, neon 1.5s alternate infinite;
 }
 
 .heart::before, .heart::after {
@@ -42,13 +42,13 @@ body {
   top: 0;
 }
 
-@keyframes fly {
+@keyframes fall {
   0% {
-    transform: translateY(100vh) rotate(-45deg);
+    transform: translateY(-30px); /* Start just above the screen */
     opacity: 1;
   }
   100% {
-    transform: translateY(-100vh) rotate(-45deg);
+    transform: translateY(100vh); /* Fall to the bottom of the screen */
     opacity: 0;
   }
 }
